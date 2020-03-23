@@ -29,6 +29,11 @@ public class Frame extends JFrame{
 		mainPanel.add(button1);
 		mainPanel.add(button2);
 		mainPanel.add(button3);
+		
+		//Identifying each one of the buttons
+		button1.setActionCommand("b1");
+		button2.setActionCommand("b2");
+		button3.setActionCommand("b3");
 	}
 
 }
