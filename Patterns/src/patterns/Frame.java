@@ -24,6 +24,11 @@ public class Frame extends JFrame{
 		//Creating the panel that will be added to the Frame
 		JPanel mainPanel = new JPanel ();
 	
+		//Adding each button to the panel
+		mainPanel.add(lbMenu);
+		mainPanel.add(button1);
+		mainPanel.add(button2);
+		mainPanel.add(button3);
 	}
 
 }
