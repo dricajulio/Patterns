@@ -34,6 +34,7 @@ public class Frame extends JFrame{
 		button1.setActionCommand("b1");
 		button2.setActionCommand("b2");
 		button3.setActionCommand("b3");
+		
 	}
 
 }
