@@ -1,7 +1,13 @@
 package patterns;
 
+import javax.swing.JButton;
+
 public class Frame extends JFrame{
 	
+	private JButton button1;
+	private JButton button2;
+	private JButton button3;
+	private JLabel lbMenu;
 	
 	public Frame() {
 		
@@ -12,6 +18,8 @@ public class Frame extends JFrame{
 		button3 = new Jbutton ("By name");
 		lbMenu = new JLabel ("Please, choose an option to get the records: ");
 	
+		//Creating the panel that will be added to the Frame
+		JPanel mainPanel = new JPanel ();
 	
 	}
 
