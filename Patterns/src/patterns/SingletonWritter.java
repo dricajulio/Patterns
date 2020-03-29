@@ -33,7 +33,7 @@ public class SingletonWritter {
 	
 	//Singleton getter
 	public static SingletonWritter getInstace () {
-		return instance;
+		return instace;
 	}
 	
 //	Connecting with the database
@@ -41,7 +41,7 @@ public class SingletonWritter {
 //	https://www.youtube.com/watch?v=eakDOoljKDU
 	public void ConnectToDatabase() {
 		//Strings gave by Amilcar to make the connection w/ the database
-		// The driver is extremelly important, there is no connection whitout the driver
+		// The driver is extremely important, there is no connection whitout the driver
 		String driver = "com.mysql.jdbc.Driver";
 		String server = "jdbc:mysql://52.50.23.197:3306/world";
 		String user = "cctstudent";
@@ -53,8 +53,8 @@ public class SingletonWritter {
 			this.stat = this.con.createStatement();
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null,
-					"Error: " + e.getMessage(), //mensagem
-			        "Error", // titulo da janela 
+					"Error: " + e.getMessage(), //message
+			        "Error", // Window title 
 			        JOptionPane.INFORMATION_MESSAGE);
 		}
 		
@@ -62,14 +62,14 @@ public class SingletonWritter {
 		
 	//Method to disconnect with the database
 	public void DisconnectDatabase() {
-		//Try catch to disconnect the db
+		//Try catch to disconnect the DB
 		try {
 			//Command to end the connection
 			this.con.close();
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null,
-					"Error: " + e.getMessage(), //mensagem
-			        "Error", // titulo da janela 
+					"Error: " + e.getMessage(), //Message
+			        "Error", // Window title 
 			        JOptionPane.INFORMATION_MESSAGE);
 		}
 	}

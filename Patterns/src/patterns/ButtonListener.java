@@ -35,7 +35,10 @@ public class ButtonListener implements ActionListener{
 		
 		if (arg0.getActionCommand() =="b2") {
 			String code = JOptionPane.showInputDialog("Please, enter a valid code: ");
-		}else if (argo)
+		}else if (arg0.getActionCommand() == "b3" ) {
+			String nmae = JOptionPane.showInputDialog("Please, enter a valid name: ");
+		} else {
+			
 		}
 	}
 }

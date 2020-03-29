@@ -37,7 +37,7 @@ public void windowDeiconified(WindowEvent e) {
 	
 }
 
-@Override
+//@Override
 public void windowconified(WindowEvent e) {
 	// TODO Auto-generated method stub
 	
@@ -45,6 +45,12 @@ public void windowconified(WindowEvent e) {
 
 @Override
 public void windowOpened(WindowEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+
+@Override
+public void windowIconified(WindowEvent e) {
 	// TODO Auto-generated method stub
 	
 }
