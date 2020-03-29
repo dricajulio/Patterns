@@ -39,6 +39,8 @@ public class SingletonWritter {
 //	Connecting with the database
 //	 https://www.caelum.com.br/apostila-java-web/bancos-de-dados-e-jdbc/#a-conexo-em-java
 //	https://www.youtube.com/watch?v=eakDOoljKDU
+//https://www.youtube.com/watch?v=nbAYB6HyTQI
+	
 	public void ConnectToDatabase() {
 		//Strings gave by Amilcar to make the connection w/ the database
 		// The driver is extremely important, there is no connection whitout the driver
