@@ -12,7 +12,7 @@ public class ButtonListener implements ActionListener{
 	 * Each instance of this class will have a 
 	 * reference to the singleton writer object
 	 */
-	SingletonWritter sw = SingletonWritter.getInstace();
+	SingletonWritter sw = SingletonWritter.getInstance();
 	
 	//@Override
 	public void actionPerformerd (ActionEvent arg0) {

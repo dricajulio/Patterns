@@ -5,7 +5,7 @@ import java.awt.event.WindowListener;
 
 public class WinListener implements WindowListener{
 
-	SingletonWritter sw = SingletonWritter.getInstace ();
+	SingletonWritter sw = SingletonWritter.getInstance ();
 
 @Override
 public void windowActivated(WindowEvent e) {

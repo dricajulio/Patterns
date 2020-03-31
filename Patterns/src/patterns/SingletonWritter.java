@@ -1,5 +1,6 @@
 package patterns;
 
+
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 
@@ -7,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
+
 
 /**
  * 
@@ -21,19 +23,20 @@ import com.mysql.jdbc.Statement;
 
 public class SingletonWritter {
 	
+	// Variable to connect with the DB
 	private java.sql.Connection con = null;
 	private java.sql.Statement stat = null;
 	private ResultSet res = null;
 	
 	//Single instance that live here
-	private static SingletonWritter instace = new SingletonWritter ();
+	private static SingletonWritter instance = new SingletonWritter();
 	
 	//Private constructor
 	private SingletonWritter () {}
 	
 	//Singleton getter
-	public static SingletonWritter getInstace () {
-		return instace;
+	public static SingletonWritter getInstance() {
+		return instance;
 	}
 	
 //	Connecting with the database
@@ -43,23 +46,26 @@ public class SingletonWritter {
 	
 	public void ConnectToDatabase() {
 		//Strings gave by Amilcar to make the connection w/ the database
-		// The driver is extremely important, there is no connection whitout the driver
+		// The driver is extremely important, there is no connection without the driver
 		String driver = "com.mysql.jdbc.Driver";
 		String server = "jdbc:mysql://52.50.23.197:3306/world";
 		String user = "cctstudent";
 		String password = "Pass1234!";
 		
 		try {
+			//Inserting the Drive into the class
 			Class.forName(driver);
-			this.con = DriverManager.getConnection (server, user, password);
+			//Assigning the DriverManager connection using the connection strings
+			this.con = DriverManager.getConnection(server, user, password);
+			//Creating a new Statement from the assigned connection
 			this.stat = this.con.createStatement();
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null,
 					"Error: " + e.getMessage(), //message
-			        "Error", // Window title 
+			        "Error",  
 			        JOptionPane.INFORMATION_MESSAGE);
-		}
-		
+				
+	}
 	}
 		
 	//Method to disconnect with the database
