@@ -49,7 +49,7 @@ public class WinListener implements WindowListener{
 	@Override
 	public void windowOpened(WindowEvent e) {
 		// TODO Auto-generated method stub
-		// Using the singleton writerr
+		// Using the singleton writer
 		sw.ConnectToDatabase();
 	}
 
