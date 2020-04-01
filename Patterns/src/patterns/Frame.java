@@ -48,7 +48,7 @@ public class Frame extends JFrame {
 		button3.setActionCommand("b3");
 		button4.setActionCommand("b4");
 		
-		// NOTICE  that here we are creating four different
+		// creating four different
 		// instances of the ButtonListener class. This way
 		// each button has its own action listener
 		button1.addActionListener(new ButtonListener());
@@ -61,7 +61,7 @@ public class Frame extends JFrame {
 		
 		this.add(mainPanel);
 		
-		this.setTitle("Adriana - World  System"); 
+		this.setTitle("Adriana Moreira- World  System"); 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
 		this.setVisible(true);

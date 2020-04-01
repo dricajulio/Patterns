@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 public class ButtonListener implements ActionListener{
@@ -12,7 +13,7 @@ public class ButtonListener implements ActionListener{
 	 * Each instance of this class will have a 
 	 * reference to the singleton writer object
 	 */
-	SingletonWritter sw = SingletonWritter.getInstance();
+	DataSourceSingletonWritter sw = DataSourceSingletonWritter.getInstance();
 	
 	//@Override
 	public void actionPerformerd (ActionEvent arg0) {
@@ -32,7 +33,7 @@ public class ButtonListener implements ActionListener{
 			// asking user to enter a name	
 			String name = JOptionPane.showInputDialog ("Please enter a valid name: ");
 			// Using the singleton writer to access the database e get information according with the name
-						sw.GetCountryName(name);
+			sw.GetCountryName(name);
 		
        } else if (arg0.getActionCommand() == "b4") {//B4 refer to button4 = new JButton("INSERT NEW COUNTRY");
 			
@@ -115,4 +116,7 @@ public class ButtonListener implements ActionListener{
 		
 	}
 
-}
+	
+	}
+
+
