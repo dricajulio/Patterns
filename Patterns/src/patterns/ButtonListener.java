@@ -9,12 +9,14 @@ import javax.swing.JOptionPane;
 
 public class ButtonListener implements ActionListener{
 
-	/*
-	 * Each instance of this class will have a 
-	 * reference to the singleton writer object
-	 */
-	DataSourceSingletonWritter sw = DataSourceSingletonWritter.getInstance();
-	
+/*
+ *  now the client does not have related with the DB, the client
+Will only talk to the countrydao in terms of customer, in other words
+The passing of data is going to be countries objects
+
+ */
+    MySQLCountryDAO db = new MySQLCountryDAO ();
+    
 	//@Override
 	public void actionPerformerd (ActionEvent arg0) {
 		// building the string that is going to be printed to the console
@@ -27,13 +29,13 @@ public class ButtonListener implements ActionListener{
 			// asking a user to enter a code
 			String code = JOptionPane.showInputDialog ("Please enter a valid code: ");
 			// Using the singleton writer to access the database and generate information
-			sw.GetCountryCode(code);
+			//db.getCountriesByCode(code);
 			
 		} else if (arg0.getActionCommand() == "b3") {//B3 refer to button3 = new JButton("GET BY NAME");
 			// asking user to enter a name	
 			String name = JOptionPane.showInputDialog ("Please enter a valid name: ");
 			// Using the singleton writer to access the database e get information according with the name
-			sw.GetCountryName(name);
+			//db.getCountriesByName(name);
 		
        } else if (arg0.getActionCommand() == "b4") {//B4 refer to button4 = new JButton("INSERT NEW COUNTRY");
 			
@@ -56,7 +58,7 @@ public class ButtonListener implements ActionListener{
 															+ "7-South America");
 				// Transforming what user typed into int, because what the user typed is in the var String continent
 				continentOption = Integer.parseInt(continent);
-				// Condition that performs the validation, as it is only valid if the num of the continent is between 1 and 7				if (continentOption < 1 | continentOption > 7) {
+				// Condition that performs the validation, as it is only valid if the num of the continent is between 1 and 7
 				if (continentOption < 1 | continentOption > 7) {
 				continentOption = 0;//In case it is valid,transformed the number in 0
 					//show error message 
@@ -100,13 +102,23 @@ public class ButtonListener implements ActionListener{
 			float sufaceAreaFloat = Float.parseFloat(surfacearea);
 			String headofstate = JOptionPane.showInputDialog("Please, enter a valid Head Of State: ");
 			
-			// Using the singleton writer to access the database an insert 
-			// the information that the user had typed
-			sw.InsertNewCountry(code, name, continent, sufaceAreaFloat, headofstate);
+			 
+			//Country country = new Country(code, name, continent, sufaceAreaFloat, headofstate);
+			//db.saveCountry(country);
 			
-		}else if (arg0.getActionCommand() == "b1") {//B1 refer to the button1 = new JButton("GET ALL COUNTRIES");
-			// If you do not enter any of the conditions, it means that the selected button was the 
-			sw.GetAllRecords();
+		}else if (arg0.getActionCommand() == "b1") {//B1 é refer to button1 = new JButton("GET ALL COUNTRIES");
+			 
+			String records = "";
+			// Initializing the variable records that will receive the String of all records in the table country with all the details that were located within a Country ARRAYLIST			String records = "";
+			for (Country country : db.getCountries()) {
+				
+				//Connecting the details of the current country of the list into the String records
+				records = records + country.toString() + "\n";
+			}
+			JOptionPane.showMessageDialog(null,
+					records, //Here is the msg to be displayed to the user, in this case it will be records, as they are all data from all countries in the database
+			        "Information", 
+			        JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 
@@ -116,7 +128,6 @@ public class ButtonListener implements ActionListener{
 		
 	}
 
-	
-	}
+}
 
 

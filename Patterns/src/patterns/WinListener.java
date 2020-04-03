@@ -7,24 +7,24 @@ public class WinListener implements WindowListener{
 
 	// Each instance of this class will have a 
 	// a reference to the singleton writer object
-	SingletonWritter sw = SingletonWritter.getInstance ();
+	DataSourceSingletonWritter dssw = DataSourceSingletonWritter.getInstance ();
 	
 	
 @Override
-	public void windowActivated(WindowEvent e) {
+	public void windowActivated (WindowEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void windowClosed(WindowEvent e) {
+	public void windowClosed (WindowEvent e) {
 		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void windowClosing(WindowEvent e) {
 		// Using the singleton writer object
-		sw.DisconnectDatabase();
+		dssw.closing();
 		System.exit(0);
 	}
 
@@ -49,8 +49,7 @@ public class WinListener implements WindowListener{
 	@Override
 	public void windowOpened(WindowEvent e) {
 		// TODO Auto-generated method stub
-		// Using the singleton writer
-		sw.ConnectToDatabase();
+		
 	}
 
 }

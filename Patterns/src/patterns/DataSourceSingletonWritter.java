@@ -1,5 +1,6 @@
 package patterns;
 
+
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.DriverManager;
@@ -24,8 +25,8 @@ import com.mysql.jdbc.Statement;
 public class DataSourceSingletonWritter {
 	
 	private String db = "jdbc:mysql://localhost:3306/country";
-	private String un = "root";
-	private String pw = "123";
+	private String un = "cctstudent";
+	private String pw = "Pass1234!";
 	
 	/*
 	 * making those bad boys global, to be able to access
@@ -38,7 +39,7 @@ public class DataSourceSingletonWritter {
 	private static DataSourceSingletonWritter instace = new DataSourceSingletonWritter ();
 	
 	//Private constructor
-	private DataSourceSingletonWritter() {
+	DataSourceSingletonWritter() {
 		
 		try {
 			//Get a connection to the database
@@ -52,8 +53,9 @@ public class DataSourceSingletonWritter {
 			
 			//Loop through the SQL Exceptions
 			while (se !=null) {
-				System.out.println( "State: " + se.getSQLState ()  );
-				System.out.println( "Message: " + se.getMessage () );
+				System.out.println( "State  : " + se.getSQLState()  ) ;
+				System.out.println( "Message: " + se.getMessage()   ) ;
+				System.out.println( "Error  : " + se.getErrorCode() ) ;
 				
 				se = se.getNextException ();
 			}
@@ -69,30 +71,46 @@ public class DataSourceSingletonWritter {
 		return getInstance();
 	}
 	
-	//generic method to do any select statement that pass in 
-	//using the query available
-	public boolean save (String query) {
-		
-		try {
-			stmt.execute(query);
-			return true;
-		}catch (SQLException e) {
+	
+	// Generic method to do any insert statement that pass in using the query variable
+		public ResultSet select(String query) {
+			// Execute the query
+			ResultSet rs = null;
+			try {
+				 rs = stmt.executeQuery( query ) ;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
-			e.printStackTrace();
-			return false;
+			return rs;
+		}
+		
+		// Generic method to do any insert statement that pass in using the query variable
+		public boolean save(String query) {
+			
+			try {
+				
+				stmt.execute( query );
+				return true;
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+				return false;
+			}
+			
+		}
+		
+		//Separated method to close the statement connection
+		public void closing() {
+			try {
+				stmt.close();
+				conn.close();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 		}
 	}
-}
-
-//Separate method to close the statement and the conection
-public void closing () {
-	try {
-		stmt.close();
-		conn.close();
-	}catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-}
-}
