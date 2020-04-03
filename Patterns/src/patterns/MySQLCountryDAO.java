@@ -6,27 +6,26 @@ import java.util.ArrayList;
 
 public class MySQLCountryDAO implements CountryDAO {
 	
-	// METHOD 1: GET ALL COUNTRIES
+	// Method 1: get all countries
 	@Override
 	public ArrayList<Country> getCountries() {
-		// CREATE THE ARRAYLIST TO PUT ALL THE COUNTRIES
-		// THAT ARE GOING TO BE RETURNED
+		//  Creating the array list to put all the countries
+		// that are going to be returned
 		ArrayList<Country> countries = new ArrayList<Country>();
 		
-		// THIS IS THE METHOD IN CHARGE OF CREATE THE QUERY
+		// This is the method in charge of create the query
 		String query = "select * from country";
 		
-		// ACCESSING THE DATABASE
+		// accessing the database
 		DataSourceSingletonWritter db = new DataSourceSingletonWritter();
 		
-		// QUERYING THE DATABASE
+		// querying the database
 		ResultSet rs = db.select(query);
 		
-		// LOOP OVER THE RESULT SET
+		// loop over the result set
 		try {
 			while( rs.next() ) {
-				// FOR EACH ONE OF THE VALUES, WE WANT TO
-				// GET THE ATTRIBTUES
+				// Getting the attributes for each of the values
 				String code = rs.getString(1);
 				String name = rs.getString(2);
 				String continent = rs.getString(3);
@@ -131,7 +130,27 @@ public class MySQLCountryDAO implements CountryDAO {
 	@Override
 	public boolean saveCountry(Country country) {
 		// TODO Auto-generated method stub
-		return false;
-	}
-	
-}
+		// Accessing the db
+				DataSourceSingletonWritter db = new DataSourceSingletonWritter();
+				
+				// From the object, getting the data
+				 String code = country.getCode();
+				 String name = country.getName();
+				 String continent = country.getContinent();
+				 float surface = country.getSurface();
+				 String head = country.getHead();
+				
+				// Creating the query
+				String query = "INSERT INTO country (Code, Name, Continent, SurfaceArea, HeadOfState) "
+		                + "VALUES ('"+ code + "', '"+ name + "', " + " '"+ continent + "', '" + surface +"' , '"+ head +"')";
+				// Request to save the data
+				boolean result = db.save(query);
+				
+				
+				//closing the db
+				db.closing();
+				
+				return result;
+			}
+			
+		}
