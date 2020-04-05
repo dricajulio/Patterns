@@ -1,10 +1,12 @@
 
-Having chosen the Singleton method. I’ve created a new Java project based on a Singleton exercise in class, to later apply the necessary changes to access the database.
-The main class creates a new instance of the Frame class. The Frame extends class of JFrame to be able to visualize the components on screen, as well as all the variables and characteristics of the screen. The ButtonListener Initiates class takes a unique instance of the SingeltonWritter class. The ButtonListener class still needs adjustments to make queries in the database, which will be done later.
+Having chosen the Singleton method. I’ve created a new Java project based on a Singleton exercise in class made by Amilcar Aponte, to later apply the necessary changes to access the database.
+The main class created a new instance of the Frame class. The Frame extends class of JFrame to be able to visualize the components on screen, as well as all the variables and characteristics of the screen. The ButtonListener Initiates class takes a unique instance of the SingeltonWritter class. The ButtonListener class still needs adjustments to make queries in the database, which will be done later.
 The SingletonWritter class where the Singleton Pattern is applied has variable locations for connection to the database, in addition to the methods of the single instance, on which this Pattern is based. In addition, ConnectToDatabase and DisconnectDatabase methods have been implemented. The methods of querying records in the database will be implemented later.
 https://www.geeksforgeeks.org/singleton-class-java/
 
 Implementation of the DAO method, to achieve the full exercise requirements of the use of 2 patterns.
+
+github 
 
 **Since it was my first time using github on eclipse, I fell that I failed with my a lack of information on my first commits, 
 so I've decided to write down some of the project evaluation, that I felt that could have put on my previous commits.**

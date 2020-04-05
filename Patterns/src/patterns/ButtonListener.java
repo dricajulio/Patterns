@@ -44,7 +44,7 @@ The passing of data is going to be countries objects
 					//Checking if any country was add into the var records
 					if (records.equals("")) {
 						JOptionPane.showMessageDialog(null,
-								"Any contry was found bt this code " + code, 
+								"No country was found with that code " + code, 
 						        "Information", 
 						        JOptionPane.ERROR_MESSAGE);
 					} else {
