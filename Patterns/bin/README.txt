@@ -6,7 +6,8 @@ https://www.geeksforgeeks.org/singleton-class-java/
 
 Implementation of the DAO method, to achieve the full exercise requirements of the use of 2 patterns.
 
-github 
+github > https://github.com/dricajulio/Patterns.git
+
 
 **Since it was my first time using github on eclipse, I fell that I failed with my a lack of information on my first commits, 
 so I've decided to write down some of the project evaluation, that I felt that could have put on my previous commits.**
